@@ -7,7 +7,7 @@ module.exports = defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         keys: resolve(__dirname, 'key.html'),
-        3d: resolve(__dirname, '3d.html')
+        visualizer: resolve(__dirname, '3d.html')
       }
     }
   }

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactions - Keypress</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="nav">
+        <a href="index.html">
+            <h9>Canvas Drawing</h9>
+        </a>
+        <a href="#">
+            <h9>&nbsp;</h9>
+        </a>
+        <a class="active" href="#">
+            <h9>Keypress Detector</h9>
+        </a>
+        <a href="#">
+            <h9>&nbsp;</h9>
+        </a>
+        <a href="3d.html">
+            <h9>3D Visualizer</h9>
+        </a>
+    </div>
+    <center>
+        <br />
+        <br />
+        <br />
+        <br />
+        <canvas id="Canvas">Your Browser Doesn't Support The Canvas HTML Tag. </canvas>
+        <br />
+        <br />
+        <h3>Press any Key . . . <br />Literally</h3>
+    </center>
+</body>
+<script>
+    window.addEventListener("keydown", my_keydown);
+    function my_keydown(e) {
+        if ((e.keyCode >= 97 && e.keyCode <= 122) || (e.keyCode >= 65 && e.keyCode <= 90)) {
+            console.log("Alphabet Key");
+            document.getElementById("Canvas").getContext("2d").clearRect(0, 0, 1000, 600);
+            document.getElementById("Canvas").getContext("2d").beginPath();
+            document.getElementById("Canvas").getContext("2d").fillText("Alphabetical Key Pressed", 10, 50);
+        } else if (e.keyCode >= 48 && e.keyCode <= 57) {
+            console.log("Number Key");
+            document.getElementById("Canvas").getContext("2d").clearRect(0, 0, 1000, 600);
+            document.getElementById("Canvas").getContext("2d").beginPath();
+            document.getElementById("Canvas").getContext("2d").fillText("Number Key Pressed", 10, 50);
+        } else if (e.keyCode >= 37 && e.keyCode <= 40) {
+            console.log("Arrow Key");
+            document.getElementById("Canvas").getContext("2d").clearRect(0, 0, 1000, 600);
+            document.getElementById("Canvas").getContext("2d").beginPath();
+            document.getElementById("Canvas").getContext("2d").fillText("Arrow Key Pressed", 10, 50);
+        } else if ((e.keyCode == 17) || (e.keyCode == 18 || e.keyCode == 27)) {
+            console.log("Special Key");
+            document.getElementById("Canvas").getContext("2d").clearRect(0, 0, 1000, 600);
+            document.getElementById("Canvas").getContext("2d").beginPath();
+            document.getElementById("Canvas").getContext("2d").fillText("Special Key Pressed", 10, 50);
+        } else {
+            console.log("Other Key");
+            document.getElementById("Canvas").getContext("2d").clearRect(0, 0, 1000, 600);
+            document.getElementById("Canvas").getContext("2d").beginPath();
+            document.getElementById("Canvas").getContext("2d").fillText("Other Key Pressed", 10, 50);
+            document.getElementById("Canvas").getContext("2d").fillText("(Not Coded In)", 10, 70);
+        }
+    }
+</script>
+
+</html>

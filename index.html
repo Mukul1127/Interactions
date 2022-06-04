@@ -67,7 +67,7 @@
     document.getElementById("Radius").style.display = "none";
 
     var colorWheel = new iro.ColorPicker("#Colors", {
-
+        color: "#000000",
         layout: [{
             component: iro.ui.Wheel,
             options: {
@@ -86,29 +86,22 @@
         }]
 
     });
-
     colorWheel.resize(150);
-
     canvas.addEventListener("mousedown", function(e) {
         if (line == true) {
             Color = colorWheel.color.hexString;
             LWidth = document.getElementById("LWidth").value;
-
             Mouse = "mouseClick";
         } else {
             Color = colorWheel.color.hexString;
             LWidth = document.getElementById("LWidth").value;
             Radius = document.getElementById("RadiusV").value;
-
             Mouse = "mouseClick";
         }
     });
-
     canvas.addEventListener("mousemove", function(e) {
-
         CMouseX = e.clientX - canvas.offsetLeft;
         CMouseY = e.clientY - canvas.offsetTop;
-
         if (Mouse == "mouseClick") {
             if (line == true) {
                 canvas.getContext("2d").beginPath();
@@ -133,40 +126,31 @@
                 canvas.getContext("2d").stroke();
             }
         }
-
         LMouseX = CMouseX;
         LMouseY = CMouseY;
     });
-
     canvas.addEventListener("mouseup", function(e) {
         Mouse = "mouseUp";
     });
-
     canvas.addEventListener("mouseleave", function(e) {
         Mouse = "mouseLeave";
     });
-
     canvas.addEventListener("touchstart", my_touchstart);
-
     function my_touchstart(e) {
         if (line == true) {
             Color = colorWheel.color.hexString;
             LWidth = document.getElementById("LWidth").value;
-
             LTouchX = e.touches[0].clientX - canvas.offsetLeft;
             LTouchY = e.touches[0].clientY - canvas.offsetTop;
         } else {
             Color = colorWheel.color.hexString;
             LWidth = document.getElementById("LWidth").value;
             Radius = document.getElementById("RadiusV").value;
-
             LTouchX = e.touches[0].clientX - canvas.offsetLeft;
             LTouchY = e.touches[0].clientY - canvas.offsetTop;
         }
     }
-
     canvas.addEventListener("touchmove", my_touchmove);
-
     function my_touchmove(e) {
         if (line == true) {
             CTouchX = e.touches[0].clientX - canvas.offsetLeft;
@@ -181,7 +165,6 @@
             console.log("X = " + CTouchX + ", " + "Y = " + CTouchY);
             canvas.getContext("2d").lineTo(CTouchX, CTouchY);
             canvas.getContext("2d").stroke();
-
             LTouchX = CTouchX;
             LTouchY = CTouchY;
         } else {
@@ -196,12 +179,10 @@
             canvas.getContext("2d").stroke();
         }
     }
-
     function clearArea() {
         canvas.getContext("2d").clearRect(0, 0, 1000, 600);
         canvas.getContext("2d").beginPath();
     }
-
     function saveImg() {
         let downloadLink = document.createElement('a');
         downloadLink.setAttribute('download', 'Saved Image.png');
@@ -210,7 +191,6 @@
         downloadLink.setAttribute('href', url);
         downloadLink.click();
     }
-
     function change() {
         if (document.getElementById("checkbox").checked == true) {
             line = false;
